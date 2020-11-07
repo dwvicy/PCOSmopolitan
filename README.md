@@ -6,3 +6,8 @@ PCOSmopolitan is a futuristic solution to combat the disparity amongst PCOS pati
 <a href="https://imgur.com/00aKlZg"><img src="https://i.imgur.com/00aKlZg.png" title="source: imgur.com" height=200 width=200/></a>
 
 ## Getting Started
+
+ ## Tech Stack
+
+| HTML | CSS | Flask | JavaScript | jQuery | scikit-learn |
+ | :---: | :---: | :---: | :---: | :---: | :---: | 
