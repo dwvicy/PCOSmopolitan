@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
+@media screen and (min-width: 480px){
 html {
   margin: auto;
   font-family: Poppins;
@@ -10,7 +10,7 @@ html {
   font-size: 1.5em;
   text-align: justify;
 }
-
+}
 .header {
   top: 0;
   left: 0;
@@ -24,9 +24,9 @@ html {
 }
 
 .logo {
-  width: 530px;
-  height: 120px;
-  background-image: url("https://i.imgur.com/cy3zjnn.png");
+  width: 800px;
+  height: 150px;
+  background-image: url("assets/logo.png");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
@@ -34,13 +34,14 @@ html {
 }
 
 
-
+@media screen and (min-width: 480px){
 .container {
   width: 1100px;
   height: 2173px;
   top: 120px;
-  margin: auto auto;
+  margin: 30px auto;
   position: relative;
+}
 }
 
 .cardy {
@@ -60,21 +61,56 @@ html {
 
 
 #img01 {
-  background-image: url("assets/Group\ 7.png");
+  background-image: url("static/Group\ 7.png");
   
 }
 
 #img02 {
-  background-image: url("assets/Group\ 5.png");
+  background-image: url("static/Group\ 5.png");
 }
 
 #img03 {
-  background-image: url("assets/Group\ 10.png");
+  background-image: url("static/Group\ 10.png");
 }
 
 #img04 {
-  background-image: url("assets/Group\ 8.png");
+  background-image: url("static/Group\ 8.png");
+}
+
+.sections{
+  height: 100%;
+  position: relative;
+  width: 960px;
+  top: 120px;
+  margin: 40px auto;
+} 
+
+.container {
+  width: 1100px;
+  height: 2173px;
+  top: 120px;
+  margin: 30px auto;
+  position: relative;
+}
+
+
+.questions {
+    box-shadow: 2px 2px 5px grey;
+    vertical-align: bottom;
+    background: #ffffff;
+    width: 70%;
+    height: 300px;
+    border-radius: 10px;
+    border: 1px solid #333333;
+    text-align: center;
+    margin-bottom: 40px;
+    border-width: 0px;
 }
 
 
 
+
+.answer-button:hover {
+  background: #ff6f00;
+  color: white;
+}
