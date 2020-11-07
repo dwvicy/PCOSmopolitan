@@ -36,6 +36,23 @@ h2 {
 
 .class {
   box-shadow: 1px 1px 1.5px black;
+  border-radius: 30px;
+}
+.container {
+  vertical-align: bottom;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+
+.container a {
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Montserrat;
+  font-size: 1em;
+  width: 60px;
+  height: 30px;
+  color: #ffffff;
+  
 }
 
 .App-link {
