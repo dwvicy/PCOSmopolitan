@@ -1,23 +1,23 @@
 import logo from './logo.svg';
+import Button from 'react-bootstrap/Button';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+       
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+         Get to know yourself better
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <Button className="class" variant="light" size="lg">
+   <h2>Detect now</h2>
+  </Button>
+        
       </header>
+
+      <a href="https://imgur.com/LfNNzXK"><img src="https://i.imgur.com/LfNNzXK.png" alt="block"/></a>
     </div>
   );
 }

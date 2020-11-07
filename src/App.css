@@ -1,3 +1,8 @@
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 .App {
   text-align: center;
 }
@@ -14,18 +19,38 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(#FC589D, #FC5858);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(50px + 2vmin);
   color: white;
+  font-family: 'Poppins', sans-serif;
+  
+}
+h2 {
+  text-shadow: 1px 1px 1px black;
+}
+
+.class {
+  box-shadow: 1px 1px 1.5px black;
 }
 
 .App-link {
   color: #61dafb;
+}
+.itemImg {
+  width: 300px;
+  height: 250px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 20px auto 15px;
+}
+
+#img1 {
+  background-image: url("https://i.imgur.com/LfNNzXK.png");
 }
 
 @keyframes App-logo-spin {
