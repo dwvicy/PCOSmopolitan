@@ -280,7 +280,7 @@ input {
 <div class="divi">
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form>
+		<form method="POST">
 			<h1>Create Account</h1>
 			<div class="social-container">
 				<a href="#" class="social"><img src ="{{ url_for('static', filename = '20.png') }}"></a>
@@ -292,7 +292,7 @@ input {
 			<input type="text" placeholder="Name" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<a href="/home"><button id="signUp">Sign Up</button></a>
+			<a href="/"><button id="signUp">Sign Up</button></a>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -306,8 +306,8 @@ input {
 			<span>or use your account</span>
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
-			<a href="\">Forgot your password?</a>
-			<button onsubmit="window.location.href='/home'">Sign In</button>
+			Forgot your password?
+			<a href="\"><button id="signUp">Sign In</button></a>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -322,7 +322,7 @@ input {
             <img src="{{ url_for('static', filename = '6.png') }}">
 				<h1>Hello, Lovely Girls!</h1>
 				<p>Enter your details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<a href="/"><button class="ghost" id="signUp">Sign Up</button></a>
 			</div>
 		</div>
 	</div>
