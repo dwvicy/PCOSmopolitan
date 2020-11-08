@@ -3,45 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $.fn.upform = function() {
+    var $this = $(this);
+    var container = $this.find(".upform-main");
+  
+    $(document).ready(function() {
+      $(container).find(".input-block").first().click();
+    });
+  
+    $($this).find("form").submit(function() {
+      return false;
+    });
+  
+    $(container)
+      .find(".input-block")
+      .not(".input-block input")
+      .on("click", function() {
+      rescroll(this);
+    });
+  
+    $(container).find(".input-block input").keypress(function(e) {
+      if (e.which == 13) {
+        if ($(this).hasClass("required") && $(this).val() == "") {
+        } else moveNext(this);
+      }
+    });
+  
+    $(container).find('.input-block input[type="radio"]').change(function(e) {
+      moveNext(this);
+    });
+  
+    $(window).on("scroll", function() {
+      $(container).find(".input-block").each(function() {
+        var etop = $(this).offset().top;
+        var diff = etop - $(window).scrollTop();
+  
+        if (diff > 100 && diff < 300) {
+          reinitState(this);
+        }
+      });
+    });
+  
+    function reinitState(e) {
+      $(container).find(".input-block").removeClass("active");
+  
+      $(container).find(".input-block input").each(function() {
+        $(this).blur();
+      });
+      $(e).addClass("active");
+      /*$(e).find('input').focus();*/
+    }
+  
+    function rescroll(e) {
+      $(window).scrollTo($(e), 200, {
+        offset: { left: 100, top: -200 },
+        queue: false
+      });
+    }
+  
+    function reinit(e) {
+      reinitState(e);
+      rescroll(e);
+    }
+  
+    function moveNext(e) {
+      $(e).parent().parent().next().click();
+    }
+  
+    function movePrev(e) {
+      $(e).parent().parent().prev().click();
+    }
+  };
+  
+  $(".upform").upform();
+  $.fn.upform = function() {
+    var $this = $(this);
+    var container = $this.find(".upform-main");
+  
+    $(document).ready(function() {
+      $(container).find(".input-block").first().click();
+    });
+  
+    $($this).find("form").submit(function() {
+      return false;
+    });
+  
+    $(container)
+      .find(".input-block")
+      .not(".input-block input")
+      .on("click", function() {
+        rescroll(this);
+      });
+  
+    $(container).find(".input-block input").keypress(function(e) {
+      if (e.which == 13) {
+        if ($(this).hasClass("required") && $(this).val() == "") {
+        } else moveNext(this);
+      }
+    });
+  
+    $(container).find('.input-block input[type="radio"]').change(function(e) {
+      moveNext(this);
+    });
+  
+    $(window).on("scroll", function() {
+      $(container).find(".input-block").each(function() {
+        var etop = $(this).offset().top;
+        var diff = etop - $(window).scrollTop();
+  
+        if (diff > 100 && diff < 300) {
+          reinitState(this);
+        }
+      });
+    });
+  
+    function reinitState(e) {
+      $(container).find(".input-block").removeClass("active");
+  
+      $(container).find(".input-block input").each(function() {
+        $(this).blur();
+      });
+      $(e).addClass("active");
+      /*$(e).find('input').focus();*/
+    }
+  
+    function rescroll(e) {
+      $(window).scrollTo($(e), 200, {
+        offset: { left: 100, top: -200 },
+        queue: false
+      });
+    }
+  
+    function reinit(e) {
+      reinitState(e);
+      rescroll(e);
+    }
+  
+    function moveNext(e) {
+      $(e).parent().parent().next().click();
+    }
+  
+    function movePrev(e) {
+      $(e).parent().parent().prev().click();
+    }
+  };
+  
+  $(".upform").upform();
+  
 
     </script>
 </head>
 <style>
-  @import url('https://fonts.google.com/poppins');
-  .heady {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  display: inline-block;
-  position: absolute;
-  background: white;
-  color: #ffffff;
-  text-align: center;
-}
-
-.containerz {
-  width: 1100px;
-  height: 2173px;
-  top: 120px;
-  margin: 30px auto;
-  position: relative;
-
-}
-
-.logop {
-  width: 800px;
-  height: 150px;
-  background: url("{{ url_for('static', filename='logo.png')}}");
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: auto;
-}
+    /* PAGE & INPUT STYLING */
 body {
   background: linear-gradient(#FC589D, #FC5858);
   color: #FFF;
-  font-family: 'Poppins';
 }
 
 .btn {
@@ -172,13 +290,10 @@ input[type="radio"].toggle:checked + label:after {
 /* UPFORM STYLE ENDS*/
 
 </style>
-
-<div class="heady">
-  <div class="logop"></div>
-</div>
 <body>
     <div class="upform">
-    <form>
+
+    <form  method="POST", action="{{url_for('home')}}">
   
       <div class="upform-header"></div>
   
@@ -342,7 +457,7 @@ input[type="radio"].toggle:checked + label:after {
           <div class="input-control">
             <input id="toggle-on-q15" class="toggle toggle-left" name="q" value="1" type="radio">
             <label for="toggle-on-q15" class="btn"><span>A</span> Yes</label>
-            <input id="toggle-off-q15" class="toggle toggle-right" name="q" value="" type="radio">
+            <input id="toggle-off-q15" class="toggle toggle-right" name="q" value="0" type="radio">
             <label for="toggle-off-q15" class="btn"><span>B</span> No</label>
           </div>
         </div>
@@ -350,9 +465,9 @@ input[type="radio"].toggle:checked + label:after {
         <div class="input-block">
           <div class="label">Do you exercise regularly?</div>
           <div class="input-control">
-            <input id="toggle-on-q16" class="toggle toggle-left" name="r" value="yes" type="radio">
+            <input id="toggle-on-q16" class="toggle toggle-left" name="r" value="1" type="radio">
             <label for="toggle-on-q16" class="btn"><span>A</span> Yes</label>
-            <input id="toggle-off-q16" class="toggle toggle-right" name="r" value="no" type="radio">
+            <input id="toggle-off-q16" class="toggle toggle-right" name="r" value="0" type="radio">
             <label for="toggle-off-q16" class="btn"><span>B</span> No</label>
           </div>
         </div>
@@ -377,11 +492,19 @@ input[type="radio"].toggle:checked + label:after {
         </div>
 
         <div class="input-block">
+          <div class="label">What is your BMI?</div>
+          <div class="input-control">
+            <input type="text" class="required" name="u" placeholder="BMI" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="input-block">
           <div class="label">What is your blood group?</div>
           <div class="input-control">
             <input type="text" class="required" name="v" placeholder="Blood group" autocomplete="off">
           </div>
         </div>
+        
                 
         <div class="input-block">
           <div class="label">  What is your pulse rate?</div>
@@ -427,7 +550,7 @@ input[type="radio"].toggle:checked + label:after {
       </div>
   
       <div class="upform-footer">
-        <button type="submit" class="btn btn-primary btn-lg" name="b" placeholder="Age(years)" required>Submit</button>
+        <button type="submit" value="result" class="btn btn-primary btn-lg" name="b" placeholder="Age(years)" required >Submit</button>
       </div>
   
     </form>
