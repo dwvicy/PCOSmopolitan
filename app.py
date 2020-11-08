@@ -10,13 +10,18 @@ reg = pickle.load(open("model.pkl", "rb"))
 
 
 
-@app.route("/")
+@app.route("/home")
 def hello_worl():
      return render_template("index.html")
     
 @app.route("/remedies")
 def hello_1():
     return render_template("remedies.html")
+
+@app.route("/")
+def hello2():
+     return render_template("login.html")
+
 
 @app.route("/test")
 def hello():
