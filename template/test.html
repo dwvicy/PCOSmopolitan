@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("a").on('click', function(event) {
+        if (this.hash !== "") {
+          event.preventDefault();
+          var hash = this.hash;
+          $('html, body').animate({
+            scrollTop: $(hash).offset().top
+          }, 800, function(){
+            window.location.hash = hash;
+          });
+        } 
+      });
+    });
+    </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+html {
+  margin: auto;
+  font-family: Poppins;
+  background: white;
+  color: #ffffff;
+  font-size: 1.5em;
+  text-align: justify;
+  
+}
+
+.containerz {
+  width: 1100px;
+  height: 2173px;
+  top: 120px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.heady {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  display: inline-block;
+  position: absolute;
+  background: white;
+  color: #ffffff;
+  text-align: center;
+}
+
+.logop {
+  width: 800px;
+  height: 150px;
+  background: url("{{ url_for('static', filename='logo.png')}}");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: auto;
+}
+
+
+button, input {
+  border: 0;
+  outline: 0;
+  font-size: 16;
+  border-radius: 16*20;
+  padding: 16;
+  background-color:#EBECF0;
+  text-shadow: 1px 1px 0 #FFF;
+}
+
+
+
+input {
+  margin-right: 16/2;
+  box-shadow:  inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus {
+    box-shadow:  inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+  .btn {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 20px;
+  position: relative;
+  text-align: left;
+  border-radius: 3px;
+  -webkit-transition: background 600ms ease, color 600ms ease;
+  transition: background 600ms ease, color 600ms ease;
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF,  5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+input[type="radio"].toggle {
+  display: none;
+}
+input[type="radio"].toggle + label {
+  cursor: pointer;
+  min-width: 80px;
+}
+input[type="radio"].toggle + label:hover {
+  background: none;
+  color: #FFF;
+}
+input[type="radio"].toggle + label:after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  -webkit-transition: left 100ms cubic-bezier(0.77, 0, 0.175, 1);
+  transition: left 100ms cubic-bezier(0.77, 0, 0.175, 1);
+  width: 100%;
+  z-index: -1;
+}
+input[type="radio"].toggle.toggle-left + label {
+}
+input[type="radio"].toggle.toggle-left + label:after {
+  left: 100%;
+}
+input[type="radio"].toggle.toggle-right + label {
+  margin-left: 10px;
+}
+input[type="radio"].toggle.toggle-right + label:after {
+  left: -100%;
+}
+input[type="radio"].toggle:checked + label {
+  background: #FFF;
+  cursor: default;
+  color: #000;
+}
+input[type="radio"].toggle:checked + label:after {
+  left: 0;
+}
+
+
+  button {
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px #FFF,  5px 5px 20px #BABECC;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+  }
+  
+  button:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+  }
+  
+  button:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+  }
+
+  button.unit {
+    border-radius: 16/2;
+    line-height: 0;
+    width: 16*3;
+    height: 16*3;
+    display:inline-flex;
+    justify-content: center;
+    align-items:center;
+    margin: 0 16/2;
+    font-size: 16*1.2;
+  }
+
+.segment {
+  text-align: center;
+  padding: 16*2 10;
+  margin: auto;
+  vertical-align: top;
+  background: linear-gradient(#FC589D, #FC5858);
+  width: 80%;
+  border-radius: 10px;
+}
+
+div{
+  color: #BABECC;
+  text-shadow: 1px 1px 1px #FFF;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 16*1.5;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  justify-content: flex-start;
+  height: 50px;
+  width: 86%;
+  margin: 50px;
+  border-radius: 10px;
+  padding-left: 20px;
+  font-family: 'Poppins';
+}
+
+form {
+  padding: 16;
+  width: 16*20;
+}
+
+.answer:hover {
+  background: whitesmoke;
+  color: black;
+}
+.ananas{
+  background: lightgray;
+
+
+}
+
+#section1 {
+ 
+ font-weight: 500;
+}
+
+#section2 {
+  
+  font-weight: 500;
+}
+</style>
+
+</head>
+<div class="heady">
+  <div class="logop"></div>
+</div>
+
+<div class="containerz">
+<div class="segment">
+<form name="form" method="get" onsubmit="return ">
+  <div class="form">
+
+    </br>
+How old are you?<br>
+<input  type="text" name="a" class="input-group" placeholder="Age" required><br><br>
+
+What is your blood group? <br>
+<label><input  type="text" name="b" class="input-group" placeholder="Blood group" required></label>
+<br><br>
+How long does your cycle last?<br>
+<input  type="text" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you tested for PCOS in the recent months? <br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required>
+<div class="unit">Yes</div><div class="unit">Nope</div>
+<br><br>
+In how many months, do you get your cycle?<br>
+<input  type="text" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Do you feel bloated in these past few weeks?<br>
+<input  type="radio" name="c" class="toggle toggle-left" value="yes" ><br><br>
+<label class="btn">Yes</label>
+          <input id="toggle-off-q1" class="toggle toggle-right" name="q1" value="no" type="radio">
+          <label for="toggle-off-q1" class="btn">Nope</label>
+Do you get a lot of facial hair?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Do you have any chest hair?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you been facing difficulty in loosing weight?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Do you feel too moody?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+In general, do you feel depressed or stressed out at times?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Do you sleep well at night?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Burger King could be awfully delicious at times but do you consume fast-food frequently?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you ever been pregnant?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you ever had an abortion, if yes how many? (if not, please enter 0)<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Could you take your inchtape and tell us about your hip measurement? (inch)<br>
+<input  type="text" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+We'll need the inchtape again. Now, tell us about your waist measurement? (inch)<br>
+<input  type="text" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+We know this could be depressing but have you recently gained weight?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you seen your hair grow in the past couple of months?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Has your skin darkened in the recent months?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Have you suffered from hair loss recently?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+We know that pimples always pop up at the wrong times but is that frequent with you?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+Also, do you exercise regularly?<br>
+<input  type="radio" name="c" class="input-group" placeholder="Cycle length in days" required><br><br>
+</form>
+</div>
+
+
+</div>
+
+</html>

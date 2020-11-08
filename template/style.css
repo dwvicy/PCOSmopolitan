@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-@media screen and (min-width: 480px){
+
 html {
   margin: auto;
   font-family: Poppins;
@@ -10,8 +10,8 @@ html {
   font-size: 1.5em;
   text-align: justify;
 }
-}
-.header {
+
+.heady {
   top: 0;
   left: 0;
   width: 100%;
@@ -23,25 +23,14 @@ html {
   text-align: center;
 }
 
-.logo {
+.logop {
   width: 800px;
   height: 150px;
-  background-image: url("assets/logo.png");
+  background: url("{{ url_for('static', filename='logo.png')}}");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
   margin: auto;
-}
-
-
-@media screen and (min-width: 480px){
-.container {
-  width: 1100px;
-  height: 2173px;
-  top: 120px;
-  margin: 30px auto;
-  position: relative;
-}
 }
 
 .cardy {
@@ -85,7 +74,7 @@ html {
   margin: 40px auto;
 } 
 
-.container {
+.containerz {
   width: 1100px;
   height: 2173px;
   top: 120px;
@@ -107,10 +96,3 @@ html {
     border-width: 0px;
 }
 
-
-
-
-.answer-button:hover {
-  background: #ff6f00;
-  color: white;
-}
