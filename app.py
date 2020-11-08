@@ -18,9 +18,27 @@ def hello_worl():
 def hello_1():
     return render_template("remedies.html")
 
+@app.route("/login")
+def hello2():
+     return render_template("login.html")
+
+
 @app.route("/test")
 def hello():
     return render_template("test.html")
+
+@app.route('/', methods=['GET', 'POST'])
+def cool_form():
+    if request.method == 'POST':
+        return redirect(url_for('index'))
+
+    # show the form, it wasn't submitted
+    return render_template('login.html')
+
+@app.route("/predict")
+def hello_ji():
+    return render_template("predict.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
